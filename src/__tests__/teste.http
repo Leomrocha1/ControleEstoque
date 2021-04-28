@@ -1,1 +1,24 @@
-GET http://localhost:8000/estoque/listar
+
+GET  http://localhost:8000/estoque/listar
+
+###
+
+GET http://localhost:8000/estoque/buscar60872838a42ad020d8340e70
+
+###
+
+POST  http://localhost:8000/entrada/cadastrar
+Content-Type: application/json
+
+{
+    "entradaProdutos":[
+        {
+            "descricao":"Furadeira",
+            "dataFabricacao":"2021/01/26",
+            "categoria": "FERRAMENTAS",
+            "valor": 450,
+            "lote": 123456,
+            "dataValidade":"2021/04/26"
+        }
+    ]
+}

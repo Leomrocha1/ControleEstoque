@@ -1,6 +1,6 @@
 import { Schema } from"mongoose";
 
-const fornecedorShema = new Schema({
+const fornecedorSchema = new Schema({
     nomeFornecedor: {
         type: String,
         required: [true, "O campo NOME DO FORNECEDOR é obrigatório."]
@@ -22,13 +22,13 @@ const fornecedorShema = new Schema({
     },
 
     email: {
+        type:String,
         required: [true, "O campo E-MAIL é obrigatório"]
-    },
+    }
 },
     {
         timestamps: true,
     }
-
 );
 
-export { fornecedorShema };
+export { fornecedorSchema };
