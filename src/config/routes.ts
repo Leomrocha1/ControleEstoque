@@ -27,4 +27,16 @@ router.put("/controle/alterar/produto/:id", gerenciamentocontroller.alterarProdu
 //deletar produto
 router.delete("/controle/produto/deletar/:id", gerenciamentocontroller.deletarProduto);
 
+//-------------FORNECEDOR------------
+
+//cadastro de fornecedor
+router.post("/controle/cadastrar/fornecedor", gerenciamentocontroller.cadastrarFornecedor);
+
+//buscar fornecedor pelo NOME
+router.get("/controle/fornecedor/:nomeFornecedor", gerenciamentocontroller.buscarFornecedor);
+
+//alterar fornecedor
+router.put("/controle/alterar/fornecedor/:id", gerenciamentocontroller.alterarFornecedor);
+
+
 export { router };
