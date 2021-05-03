@@ -17,5 +17,7 @@ router.get("/controle/produto/buscar/:nomeProduto", gerenciamentocontroller.busc
 //alterar produto
 router.put("/controle/alterar/produto/:id", gerenciamentocontroller.alterarProduto);
 
+//deletar produto
+router.delete("/controle/produto/deletar/:id", gerenciamentocontroller.deletarProduto);
 
 export { router };

@@ -45,6 +45,7 @@ class GerenciamentoController {
         response.status(200).json(produto);
    }
 
+   
 //-------------------ALTERAR PRODUTO------------------------------------
    async alterarProduto(request: Request, response: Response){
     try{
@@ -62,6 +63,25 @@ class GerenciamentoController {
              erro: true
          });}}
 
+//-------------------DELETAR PRODUTO-----------------------------------
+async deletarProduto(request: Request, response: Response){
+    
+    try{
+    const {id} = request.params;
+    const produto = await ProdutoSchema.deleteOne({ nomeProduto: id});
 
+    response.status(201).json(        
+        {objeto: produto,
+         msg: "Produto deletado com sucesso!",
+         erro: false
+     });}catch(error){
+     response.status(400).json({
+         objeto: error,
+         msg: "Falha ao deletar o Produto",
+         erro: true
+     });}}
  }
+
+ 
+
 export {GerenciamentoController};
