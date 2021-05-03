@@ -8,8 +8,15 @@ const gerenciamentocontroller = new GerenciamentoController( );
 
 // ------------PRODUTO-----------------
 
+
+//total de produtos
+router.get("/controle/total/produto", gerenciamentocontroller.produtosTotal);
+
 //cadastro de produto
 router.post("/controle/cadastrar/produto", gerenciamentocontroller.cadastrarProduto);
+
+//listar produtos cadastrados
+router.get("/controle/listar/produto", gerenciamentocontroller.listarProduto);
 
 //buscar produto pelo NOME
 router.get("/controle/produto/buscar/:nomeProduto", gerenciamentocontroller.buscarProduto);

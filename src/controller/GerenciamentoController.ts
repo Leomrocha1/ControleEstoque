@@ -36,7 +36,14 @@ class GerenciamentoController {
                 erro: true
             });}}
         
-    }     
+    } 
+    
+    
+//--------------------LISTAR PRODUTO-------------------------------------
+async listarProduto(request: Request, reponse: Response){
+    const produto = await ProdutoSchema.find( );
+    reponse.status(200).json(produto);
+}
 
 //-------------------BUSCAR PRODUTO--------------------------------------
     async buscarProduto(request: Request, response: Response){
@@ -44,7 +51,19 @@ class GerenciamentoController {
         const produto = await buscarProduto(nomeProduto);
         response.status(200).json(produto);
    }
-
+   
+//-----------------TOTAL PRODUTOS CADASTRADOS----------------------------------------
+async produtosTotal(request: Request, response: Response){
+    const  numProdutos = await ProdutoSchema.estimatedDocumentCount();
+    if(numProdutos < 3){
+       response.json({msg: "ATENÇÂO  menos de 3 produtos em estoque!!!" });
+   }else{
+       response.json({
+           msg: "Total de produtos em estoque:",
+           objeto:  numProdutos
+       });
+   }
+}
    
 //-------------------ALTERAR PRODUTO------------------------------------
    async alterarProduto(request: Request, response: Response){
