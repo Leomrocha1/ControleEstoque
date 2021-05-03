@@ -38,5 +38,15 @@ router.get("/controle/fornecedor/:nomeFornecedor", gerenciamentocontroller.busca
 //alterar fornecedor
 router.put("/controle/alterar/fornecedor/:id", gerenciamentocontroller.alterarFornecedor);
 
+//deletar fornecedor
+router.delete("/controle/fornecedor/deletar/:id", gerenciamentocontroller.deletarFornecedor);
+
+//-------------ENTRADA NO ESTOQUE---------------
+
+//cadastro de entrada
+router.post("/controle/cadastrar/entrada", gerenciamentocontroller.cadastrarEntrada);
+
+//Listar Estoque
+router.get("/controle/listar/estoque", gerenciamentocontroller.listarEstoque);
 
 export { router };

@@ -146,11 +146,57 @@ async cadastrarFornecedor(request: Request, response: Response){
     erro: true
 });}}
 
+//-------------------LISTAR FORNECEDOR----------------------------------
+async listarFornecedor(request: Request, reponse: Response){
+    const fornecedor = await fornecedorSchema.find( );
+    reponse.status(200).json(fornecedor);
 }
 
 
+//----------------------DELETAR FORNECEDOR-----------------------------
+async deletarFornecedor(request: Request, response: Response){
+    try{
+     const {id} = request.params;
+     const fornecedor = await fornecedorSchema.deleteOne({ nomeFornecedor: id});
+     response.status(200).json({
+         objeto: fornecedor,
+         msg: "Fornecedor deletado com sucesso!",
+         erro: false
+ });}catch(error){
+     response.status(400).json({
+     objeto: error,
+     msg: "Falha ao deletar Fornecedor",
+     erro: true
+ });}}
 
 
- 
+ //-----------------ADICIONAR PRODUTO----------------------
+ async cadastrarEntrada(request: Request, response: Response){
+    const nomeProduto = request.body.nomeProduto;
+    const produtoEncontrado = await buscarProduto(nomeProduto)
+    if(produtoEncontrado.length){
+        try{
+            const novaEntrada = await AdicionarProdutoSchema.create(request.body);
+            response.status(201).json({
+            objeto: novaEntrada,
+            msg: "Foi dada a entrada com sucesso!",
+            erro: false
+        });}catch(error){
+            response.status(400).json({
+            objeto: error,
+            msg: "Falha na entrada",
+            erro: true
+        });}
+    }else{
+    response.status(400).json({message: "Produto não cadastrado"});
+    }
+}
+
+async listarEstoque(request: Request, reponse: Response){
+    const estoque = await AdicionarProdutoSchema.find( );
+    reponse.status(200).json(estoque);
+}
+
+}
 
 export {GerenciamentoController};
