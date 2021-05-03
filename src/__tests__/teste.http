@@ -1,0 +1,113 @@
+
+
+
+//--------CADASTRAR PRODUTO NO SISTEMA--------
+POST  http://localhost:3000/controle/cadastrar/produto
+Content-Type: application/json
+
+{
+    "nomeProduto": "tv",
+    "unidadeMed" : "CAIXA",
+    "quantidade" : 2
+}
+
+###
+//--------------------LISTAR CADASTRO PRODUTO--------------------
+GET  http://localhost:3000/controle/listar/produto
+
+
+###
+  //-------------------BUSCAR CADASTRO PRODUTO (NOME)------------------
+GET  http://localhost:3000/controle/produto/buscar/telcado
+
+
+###
+//-------------------DELETAR CADASTRO DE PRODUTO--------------------------
+DELETE  http://localhost:3000/controle/produto/deletar/telcado
+
+
+###
+//-----------------TOTAL DE CADASTRADOS----------------------------------------
+GET  http://localhost:3000/controle/total/cadastros
+
+
+###
+  //-------------------ALTERAR CADASTRO PRODUTO-----------------------------(TESTAR PELO POSTMAN)
+  PUT  http://localhost:3000/controle/alterar/produto/60901b34525b312cc89cf286
+  
+{
+     "nomeProduto" : "Radio",
+     "unidadeMed" : "CAIXA",
+     "quantidade" : "5"
+}
+
+
+###
+//--------------------CADASTRAR FORNECEDOR-----------------------------(TESTAR PELO POSTMAN)
+POST http://localhost:3000/controle/cadastrar/fornecedor
+Content-Type: application/
+
+{
+    "nomeFornecedor" : "pedro",
+    "cnpjFornecedor" : "123",
+    "telFornecedor" : "99707070",
+    "emailFornecedor" : "teste@.com"
+}
+
+
+###
+//-------------------LISTAR FORNECEDOR----------------------------------
+ GET  http://localhost:3000/controle/listar/fornecedor
+
+
+
+###
+//--------------------BUSCAR FORNECEDOR----------------------------
+PUT http://localhost:3000/controle/fornecedor/Jose
+
+
+###
+  //----------------------DELETAR FORNECEDOR-----------------------------
+DELETE http://localhost:3000/controle/fornecedor/deletar/pedro
+
+
+###
+//-------------------ALTERAR FORNECEDOR--------------------------------
+PUT http://localhost:3000/controle/alterar/fornecedor/60903bc17d0dc72b1cdbf2db
+
+{
+    "nomeFornecedor": "jow12",
+    "cnpjFornecedor": "12345",
+    "telFornecedor": "99707070",
+    "emailFornecedor": "teste@.com"
+}
+
+
+###
+//-----------------ENTRADA PRODUTO----------------------
+POST http://localhost:3000/controle/cadastrar/entrada
+Content-Type: application/json
+
+{
+    "nomeProduto": "tv samsung",
+    "nomeFornecedor": "jow1",
+    "quantidade": 2,
+    "valor": 10,
+    "lote": 1234
+}
+
+
+###
+//----------------LISTAR PRODUTOS ESTOQUE------------------
+GET http://localhost:3000/controle/listar/entrada
+
+
+###
+ //------------------SAIDA DE PRODUTOS---------------------
+ DELETE http://localhost:3000/controle/deletar/estoque/telcado
+
+
+
+###
+PUT  http://localhost:3000/controle/produto/deletar/furadeira
+
