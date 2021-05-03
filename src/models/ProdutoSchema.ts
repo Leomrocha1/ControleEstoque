@@ -11,9 +11,7 @@ const produtoSchema = new Schema(
       type: String,
       required: [true, "O campo UNIDADE DE MEDIDA é obrigatório!"],
       enum: ["UNIDADE", "CAIXA", "PACOTE"],
-    },
-
-    quantidade: Number,
+    }
   },
   {
     timestamps: true,
