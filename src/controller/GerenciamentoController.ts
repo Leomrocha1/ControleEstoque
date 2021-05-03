@@ -1,41 +1,50 @@
 //Ação para cadastrar, listar, buscar, filtrar, remover....
 
 import {  Router, Request, Response} from "express";
-import EstoqueSchema from "../models/EstoqueSchema";
-//import EntradaSchema from "../models/EntradaSchema"
+import ProdutoSchema from "../models/ProdutoSchema";
+
+
+
+//--------FUNÇÃO DE BUSCAR PRODUTO-------------
+
+    async function buscarProduto(nomeProduto: string){
+        const produto = await ProdutoSchema.find({nomeProduto});
+        return produto;
+   }
+
 
 
 class GerenciamentoController {
 
-    async entradaProduto(request: Request, response: Response) {
-       try{
-           const novoProduto = await EstoqueSchema.create(request.body);
-           response.status(201).json({
-               objeto: novoProduto,
-            msg: "Entrada de produto cadastrado com sucesso",
-            erro: false
-            });
-       }catch(error){
-           response.status(400).json({
-               objeto: error,
-               msg: "Falha na validação",
-               erro: true
-           });
-       }
-    }
+//-------------------CADASTRAR PRODUTO----------------------------
+    async cadastrarProduto(request: Request, response: Response){
+        const nomeProduto = request.body.nomeProduto;
+        const produtoEncontrado = await buscarProduto(nomeProduto)
+        if(produtoEncontrado.length){
+            response.status(400).json({message: "Produto existente!"});
+        }else{
+        try{
+            const novoProduto = await ProdutoSchema.create(request.body);
+            response.status(201).json({
+                objeto: novoProduto,
+                msg: "Produto cadastrado com sucesso!",
+                erro: false
+        });}catch(error){
+            response.status(400).json({
+                objeto: error,
+                msg: "Falha no cadastro",
+                erro: true
+            });}}
+        
+    }     
 
-    async listar(request: Request, reponse: Response){
-        const estoque = await EstoqueSchema.find( );
-        reponse.status(200).json(estoque);
-    }
-
-    async buscarPorId(request: Request, response: Response){
-        const { id } = request.params;
-        const estoque = await EstoqueSchema.find({ _id: id });
-        response.status(200).json(estoque);
-    }
+//-------------------BUSCAR PRODUTO--------------------------------------
+    async buscarProduto(request: Request, response: Response){
+        const { nomeProduto } = request.params;
+        const produto = await buscarProduto(nomeProduto);
+        response.status(200).json(produto);
+   }
 
 
-}
-
+ }
 export {GerenciamentoController};

@@ -1,17 +1,23 @@
-import { Schema } from"mongoose";
+import { model, Schema } from"mongoose";
+
 
 
 const produtoSchema = new Schema({
-    nome: {
+    nomeProduto: {
         type: String,
         required: [true, "O Campo NOME é obrigatório!"]
     },
-    quantidade: {
-        type: Number,
-        required: [true, "O campo QUANTIDADE é obrigatório"],
-        min:[1, "Adicionar no minimo 1 produto"]
-    }, 
-    unidadeMedida: String  //Não é obrigatório!
+
+    unidadeMed: {
+        type: String,
+        required: [true, "O campo UNIDADE DE MEDIDA é obrigatório!"],
+        enum: ["UNIDADE", "CAIXA", "PACOTE"]
+
+    },
+
+    quantidade: Number
+     
+    
 
 },
     {
@@ -19,4 +25,4 @@ const produtoSchema = new Schema({
     }
 );
 
-export { produtoSchema };
+export default model("produtos", produtoSchema);
