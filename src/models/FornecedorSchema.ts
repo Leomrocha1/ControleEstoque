@@ -1,34 +1,31 @@
-import { Schema } from"mongoose";
+import { model, Schema } from "mongoose";
 
-const fornecedorSchema = new Schema({
+const fornecedorSchema = new Schema(
+  {
     nomeFornecedor: {
-        type: String,
-        required: [true, "O campo NOME DO FORNECEDOR é obrigatório."]
+      type: String,
+      required: [true, "O campo NOME DO FORNECEDOR é obrigatório."],
     },
 
-    cnpj: {
-        type:String,
-        required:[true, "O campo CNPJ é obrigatório!"]
+    cnpjFornecedor: {
+      type: String,
+      required: [true, "O campo CNPJ é obrigatório!"],
     },
 
-    telefone: {
-        type:String,
-        required:[true, "campo TELEFONE é obrigatório!"]
+    telFornecedor: {
+      type: String,
+      required: [true, "campo TELEFONE é obrigatório!"],
     },
 
-    endereco: {
-        type:String,
-        required: [true, "O campo ENDEREÇO é obrigatório"]
-    },
-
-    email: {
-        type:String,
-        required: [true, "O campo E-MAIL é obrigatório"]
+    emailFornecedor: {
+      type: String,
+      required: [true, "O campo E-MAIL é obrigatório"],
     }
-},
-    {
-        timestamps: true,
-    }
+  },
+  {
+    timestamps: true,
+  }
 );
 
-export { fornecedorSchema };
+export default model("fornecedores", fornecedorSchema);
+//export {fornecedorSchema};
