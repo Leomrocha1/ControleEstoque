@@ -14,5 +14,8 @@ router.post("/controle/cadastrar/produto", gerenciamentocontroller.cadastrarProd
 //buscar produto pelo NOME
 router.get("/controle/produto/buscar/:nomeProduto", gerenciamentocontroller.buscarProduto);
 
+//alterar produto
+router.put("/controle/alterar/produto/:id", gerenciamentocontroller.alterarProduto);
+
 
 export { router };
