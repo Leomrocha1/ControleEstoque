@@ -63,7 +63,7 @@ Content-Type: application/
 
 ###
 //--------------------BUSCAR FORNECEDOR----------------------------
-PUT http://localhost:3000/controle/fornecedor/Jose
+GET  http://localhost:3000/controle/fornecedor/jow1
 
 
 ###
@@ -73,10 +73,10 @@ DELETE http://localhost:3000/controle/fornecedor/deletar/pedro
 
 ###
 //-------------------ALTERAR FORNECEDOR--------------------------------
-PUT http://localhost:3000/controle/alterar/fornecedor/60903bc17d0dc72b1cdbf2db
+PUT http://localhost:3000/controle/alterar/fornecedor/60903bc47d0dc72b1cdbf2dc
 
 {
-    "nomeFornecedor": "jow12",
+    "nomeFornecedor": "jow",
     "cnpjFornecedor": "12345",
     "telFornecedor": "99707070",
     "emailFornecedor": "teste@.com"
@@ -89,8 +89,7 @@ POST http://localhost:3000/controle/cadastrar/entrada
 Content-Type: application/json
 
 {
-    "nomeProduto": "tv samsung",
-    "nomeFornecedor": "jow1",
+    "nomeProduto": "celular",
     "quantidade": 2,
     "valor": 10,
     "lote": 1234

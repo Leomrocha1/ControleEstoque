@@ -1,4 +1,5 @@
 import { model, Schema } from "mongoose";
+import {fornecedorSchema} from "../models/FornecedorSchema";
 
 const produtoSchema = new Schema(
   {
@@ -12,6 +13,12 @@ const produtoSchema = new Schema(
       required: [true, "O campo UNIDADE DE MEDIDA é obrigatório!"],
       enum: ["UNIDADE", "CAIXA", "PACOTE"],
     },
+
+    fornecedores : [fornecedorSchema]
+    
+    
+  
+    
   },
   {
     timestamps: true,

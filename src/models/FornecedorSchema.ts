@@ -27,5 +27,5 @@ const fornecedorSchema = new Schema(
   }
 );
 
-export default model("fornecedores", fornecedorSchema);
-//export {fornecedorSchema};
+//export default model("fornecedores", fornecedorSchema);
+export {fornecedorSchema};
